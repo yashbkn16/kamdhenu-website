@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { Phone, Mail, MapPin, Factory, Shield, Award, Menu, X, Star, ArrowRight, CheckCircle, Truck, Users, Globe, Image } from 'lucide-react';
+import { Phone, Mail, MapPin, Factory, Shield, Award, Menu, X, Star, ArrowRight, CheckCircle, Truck, Users, Globe, SearchCheck } from 'lucide-react';
 import './App.css'
 
 const App = () => {
@@ -43,7 +43,7 @@ const App = () => {
       icon: <Shield className="w-8 h-8 text-amber-700" />,
       features: ["AFS 25-70", "Clay-free", "Industrial grade", "Export quality"],
       // CUSTOMIZATION: Replace with actual product image
-      image: "/api/placeholder/400/300", // Replace with: "/images/washed-silica.jpg"
+      image: "src/images/washed-silica.jpg", // Replace with: "/api/placeholder/400/300"
       imageAlt: "High quality washed silica sand"
     },
     {
@@ -51,8 +51,8 @@ const App = () => {
       description: "High-quality Filter Media for effective filtration solutions.",
       icon: <Factory className="w-8 h-8 text-amber-700" />,
       features: ["High efficiency", "Durable", "Multi-purpose", "Premium grade"],
-      // CUSTOMIZATION: Replace with actual product image  
-      image: "/api/placeholder/400/300", // Replace with: "/images/filter-media.jpg"
+      // CUSTOMIZATION: Replace with actual product image
+      image: "src/images/filter-media.jpg",
       imageAlt: "Premium filter media for industrial use"
     },
     {
@@ -61,7 +61,7 @@ const App = () => {
       icon: <Award className="w-8 h-8 text-amber-700" />,
       features: ["16-150 mesh", "Natural quality", "Bulk supply", "Cost effective"],
       // CUSTOMIZATION: Replace with actual product image
-      image: "/api/placeholder/400/300", // Replace with: "/images/unwashed-silica.jpg"
+      image: "src/images/unwashed-silica.jpg",
       imageAlt: "Natural unwashed silica sand various mesh sizes"
     }
   ];
@@ -88,7 +88,7 @@ const App = () => {
             {/* CUSTOMIZATION: Company Logo/Name - Add your logo image here */}
             <div className="flex items-center">
               {/* Uncomment and customize this for logo image */}
-              {/* <img src="/images/logo.png" alt="Kamdhenu Industries" className="h-12 w-auto mr-3" /> */}
+              {/* <img src="src/images/kamdhenulogo.png" alt="Kamdhenu Industries" className="h-12 w-auto mr-3" /> */}
               <div className="text-2xl md:text-3xl font-bold text-amber-800">
                 Kamdhenu Industries
               </div>
@@ -148,12 +148,12 @@ const App = () => {
         {/* CUSTOMIZATION: Background Image - Add your factory/facility image here */}
         <div className="absolute inset-0 z-0">
           {/* Uncomment and add your background image */}
-          {/* <img 
-            src="/images/factory-background.jpg" 
+          <img 
+            src="src/images/background.jpg" // Replace with: "/images/factory.jpg"
             alt="Kamdhenu Industries Factory" 
-            className="w-full h-full object-cover opacity-20"
-          /> */}
-          <div className="absolute inset-0 bg-gradient-to-r from-amber-100/80 to-orange-100/80"></div>
+            className="w-full h-full object-cover opacity-80"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-amber-100/0 to-orange-100/70"></div>
         </div>
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
@@ -163,13 +163,13 @@ const App = () => {
             <h1 className="text-5xl md:text-7xl font-bold mb-8 text-amber-900">
               QUALITY SILICA SOLUTIONS
             </h1>
-            <p className="text-2xl md:text-3xl text-amber-800 mb-6 font-light">
+            <p className="text-2xl md:text-3xl text-amber-900 mb-6 font-light">
               Your Trusted Sand Supplier
             </p>
             
             {/* CUSTOMIZATION: Company description - update with your content */}
             <div className="max-w-4xl mx-auto mb-12">
-              <p className="text-lg text-gray-700 leading-relaxed mb-8">
+              <p className="text-lg text-gray-900 leading-relaxed mb-8">
                 Kamdhenu Industries stands at the forefront of silica production in Bikaner, India. 
                 Our state-of-the-art factory in Udhyog Vihar, Gajner specializes in refining high-grade 
                 sand for molding and various industrial applications.
@@ -249,21 +249,21 @@ const App = () => {
                 title: "State-of-the-art Factory",
                 description: "Modern facilities in Udhyog Vihar, Gajner, Bikaner",
                 // CUSTOMIZATION: Add factory image
-                image: "/api/placeholder/300/200" // Replace with: "/images/factory.jpg"
+                image: "src/images/factory.jpg" // Replace with: "/images/factory.jpg"
               },
               {
-                icon: <Shield className="w-16 h-16 text-amber-700" />,
+                icon: <SearchCheck className="w-16 h-16 text-amber-700" />,
                 title: "Quality Assurance",
                 description: "AFS-graded sands meeting industry standards",
                 // CUSTOMIZATION: Add quality control image
-                image: "/api/placeholder/300/200" // Replace with: "/images/quality-control.jpg"
+                image: "src/images/qa.jpg" // Replace with: "/images/quality-control.jpg"
               },
               {
                 icon: <Truck className="w-16 h-16 text-amber-700" />,
                 title: "Trusted Supplier",
                 description: "Serving customers across and beyond Rajasthan",
                 // CUSTOMIZATION: Add logistics/delivery image
-                image: "/api/placeholder/300/200" // Replace with: "/images/delivery.jpg"
+                image: "src/images/supply.jpg"
               }
             ].map((item, index) => (
               <div key={index} className="group bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-500 hover:scale-105 overflow-hidden">
@@ -271,16 +271,11 @@ const App = () => {
                 {/* CUSTOMIZATION: Feature image placeholder */}
                 <div className="h-48 bg-amber-100 flex items-center justify-center overflow-hidden">
                   {/* Uncomment to use actual images */}
-                  {/* <img 
+                  <img 
                     src={item.image} 
                     alt={item.title}
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                  /> */}
-                  
-                  {/* Placeholder - remove when adding real images */}
-                  <div className="text-amber-300">
-                    <Image className="w-24 h-24" />
-                  </div>
+                  />
                 </div>
                 
                 <div className="p-8">
@@ -323,18 +318,12 @@ const App = () => {
                 {/* CUSTOMIZATION: Product Image Section */}
                 <div className="h-64 bg-gradient-to-br from-amber-100 to-orange-100 flex items-center justify-center overflow-hidden relative">
                   {/* Uncomment to use actual product images */}
-                  {/* <img 
+                  <img 
                     src={product.image} 
                     alt={product.imageAlt}
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                  /> */}
-                  
-                  {/* Placeholder - REMOVE when adding real images */}
-                  <div className="text-amber-400 text-center">
-                    <Image className="w-24 h-24 mx-auto mb-2" />
-                    <p className="text-sm text-amber-600">Add {product.title} Image Here</p>
-                  </div>
-                  
+                  />
+
                   {/* Product label overlay */}
                   <div className="absolute top-4 left-4 bg-amber-700 text-white px-3 py-1 rounded-full text-sm font-semibold">
                     Premium Quality
@@ -522,13 +511,13 @@ const App = () => {
               {/* CUSTOMIZATION: Add Google Maps embed here */}
               <div className="bg-gray-200 rounded-2xl h-64 flex items-center justify-center">
                 {/* Uncomment and add your Google Maps embed */}
-                {/* <iframe 
-                  src="https://www.google.com/maps/embed?pb=..."
+                <iframe 
+                  src="https://maps.app.goo.gl/ijBfdCW8XKFMyEEv6"
                   className="w-full h-full rounded-2xl"
                   allowFullScreen=""
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
-                ></iframe> */}
+                ></iframe>
                 
                 {/* Placeholder - remove when adding map */}
                 <div className="text-center text-gray-500">

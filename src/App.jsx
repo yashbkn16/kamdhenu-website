@@ -75,20 +75,20 @@ const App = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-amber-50 via-orange-50 to-yellow-50 text-gray-800">
+    <div className="w-full min-h-screen overflow-x-hidden bg-gradient-to-br from-amber-50 via-orange-50 to-yellow-50 text-gray-800">
       
       {/* NAVIGATION SECTION */}
       {/* CUSTOMIZATION: Change colors by modifying bg-white/95, text colors, and hover states */}
       <nav className={`fixed top-0 w-full z-50 transition-all duration-300 ${
         scrollY > 50 ? 'bg-white/95 backdrop-blur-md shadow-lg' : 'bg-white/60 backdrop-blur-sm'
       }`}>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="w-full px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-20">
             
             {/* CUSTOMIZATION: Company Logo/Name - Add your logo image here */}
             <div className="flex items-center">
               {/* Uncomment and customize this for logo image */}
-              {/* <img src="src/images/kamdhenulogo.png" alt="Kamdhenu Industries" className="h-12 w-auto mr-3" /> */}
+              <img src="src/images/kamdhenulogo.png" alt="Kamdhenu Industries" className="h-12 w-auto mr-3" />
               <div className="text-2xl md:text-3xl font-bold text-amber-800">
                 Kamdhenu Industries
               </div>
@@ -149,14 +149,14 @@ const App = () => {
         <div className="absolute inset-0 z-0">
           {/* Uncomment and add your background image */}
           <img 
-            src="src/images/background.jpg" // Replace with: "/images/factory.jpg"
+            src="src/images/herobackground.jpg" // Replace with: "/images/factory.jpg"
             alt="Kamdhenu Industries Factory" 
-            className="w-full h-full object-cover opacity-80"
+            className="w-full h-full object-cover opacity-90"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-amber-100/0 to-orange-100/70"></div>
+          <div className="absolute inset-0 bg-gradient-to-r from-amber-100/0 to-orange-100/40"></div>
         </div>
 
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <div className="relative z-10 w-full px-4 sm:px-6 lg:px-8 text-center">
           <div className="animate-fade-in-up">
             
             {/* CUSTOMIZATION: Main heading - modify text and colors */}
@@ -199,7 +199,7 @@ const App = () => {
       {/* STATISTICS SECTION */}
       {/* CUSTOMIZATION: Update statistics, colors, and icons */}
       <section className="py-20 bg-white/50 backdrop-blur-sm">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="w-full px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             {stats.map((stat, index) => (
               <div key={index} className="text-center group hover:scale-110 transition-transform duration-300">
@@ -219,7 +219,7 @@ const App = () => {
       {/* ABOUT SECTION */}
       {/* CUSTOMIZATION: Update company information, add company images */}
       <section id="about" className="py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="w-full px-4 sm:px-6 lg:px-8">
           
           {/* CUSTOMIZATION: Section heading and description */}
           <div className="text-center mb-16">
@@ -298,7 +298,7 @@ const App = () => {
       {/* PRODUCTS SECTION */}
       {/* CUSTOMIZATION: This is where your main product images go */}
       <section id="products" className="py-20 bg-gradient-to-r from-amber-50 to-orange-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="w-full px-4 sm:px-6 lg:px-8">
           
           {/* CUSTOMIZATION: Products section heading */}
           <div className="text-center mb-16">
@@ -366,8 +366,8 @@ const App = () => {
 
       {/* CONTACT SECTION */}
       {/* CUSTOMIZATION: Update contact information and form fields */}
-      <section id="contact" className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section id="contact" className="py-20 bg-yellow-100">
+        <div className="w-full px-4 sm:px-6 lg:px-8">
           
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold mb-6 text-amber-900">
@@ -378,7 +378,7 @@ const App = () => {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-7xl mx-auto">
             
             {/* Contact Form */}
             <div className="bg-gradient-to-br from-amber-50 to-orange-50 rounded-3xl p-8 shadow-lg">
@@ -533,7 +533,7 @@ const App = () => {
       {/* FOOTER SECTION */}
       {/* CUSTOMIZATION: Update footer content, add social media links */}
       <footer className="bg-amber-900 text-white py-12">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="w-full px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             
             {/* CUSTOMIZATION: Add footer logo */}

@@ -157,19 +157,19 @@ const App = () => {
         </div>
 
         <div className="relative z-10 w-full px-4 sm:px-6 lg:px-8 text-center">
-          <div className="animate-fade-in-up">
+          <div className="animate-fade-in-up max-w-4xl mx-auto bg-white/10 backdrop-blur-md rounded-2xl p-6 md:p-10 shadow-xl">
             
             {/* CUSTOMIZATION: Main heading - modify text and colors */}
             <h1 className="text-5xl md:text-7xl font-bold mb-8 text-amber-900">
               QUALITY SILICA SOLUTIONS
             </h1>
-            <p className="text-2xl md:text-3xl text-amber-900 mb-6 font-light">
+            <p className="text-2xl md:text-4xl text-amber-900 mb-6 font-light">
               Your Trusted Sand Supplier
             </p>
             
             {/* CUSTOMIZATION: Company description - update with your content */}
             <div className="max-w-4xl mx-auto mb-12">
-              <p className="text-lg text-gray-900 leading-relaxed mb-8">
+              <p className="text-xl text-gray-900 leading-relaxed mb-8">
                 Kamdhenu Industries stands at the forefront of silica production in Bikaner, India. 
                 Our state-of-the-art factory in Udhyog Vihar, Gajner specializes in refining high-grade 
                 sand for molding and various industrial applications.
@@ -180,14 +180,14 @@ const App = () => {
             <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
               <a 
                 href="#contact" 
-                className="group bg-amber-700 hover:bg-amber-800 text-white px-8 py-4 rounded-full text-lg font-semibold shadow-lg hover:shadow-xl transition-all duration-300 flex items-center gap-2 hover:scale-105"
+                className="group bg-amber-700 hover:bg-amber-800 text-white px-8 py-4 rounded-full text-lg font-semibold shadow-lg hover:shadow-xl transition-all duration-300 flex items-center gap-2 hover:scale-105 visited:!text-white"
               >
                 Get Started
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
               </a>
               <a 
                 href="#products" 
-                className="group border-2 border-amber-700 text-amber-700 px-8 py-4 rounded-full text-lg font-semibold hover:bg-amber-700 hover:text-white transition-all duration-300 hover:scale-105"
+                className="group border-2 border-amber-700 text-amber-700 px-8 py-4 rounded-full text-lg font-semibold hover:bg-amber-700 hover:text-white transition-all duration-300 hover:scale-105 visited:!text-amber-900"
               >
                 View Products
               </a>

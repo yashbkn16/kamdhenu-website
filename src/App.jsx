@@ -43,7 +43,7 @@ const App = () => {
       icon: <Shield className="w-8 h-8 text-amber-700" />,
       features: ["AFS 25-70", "Clay-free", "Industrial grade", "Export quality"],
       // CUSTOMIZATION: Replace with actual product image
-      image: "src/images/washed-silica.jpg", // Replace with: "/api/placeholder/400/300"
+      image: "/src/images/washed-silica.jpg", // Replace with: "/api/placeholder/400/300"
       imageAlt: "High quality washed silica sand"
     },
     {
@@ -52,7 +52,7 @@ const App = () => {
       icon: <Factory className="w-8 h-8 text-amber-700" />,
       features: ["High efficiency", "Durable", "Multi-purpose", "Premium grade"],
       // CUSTOMIZATION: Replace with actual product image
-      image: "src/images/filter-media.jpg",
+      image: "/src/images/filter-media.jpg",
       imageAlt: "Premium filter media for industrial use"
     },
     {
@@ -61,7 +61,7 @@ const App = () => {
       icon: <Award className="w-8 h-8 text-amber-700" />,
       features: ["16-150 mesh", "Natural quality", "Bulk supply", "Cost effective"],
       // CUSTOMIZATION: Replace with actual product image
-      image: "src/images/unwashed-silica.jpg",
+      image: "/src/images/unwashed-silica.jpg",
       imageAlt: "Natural unwashed silica sand various mesh sizes"
     }
   ];
@@ -88,7 +88,7 @@ const App = () => {
             {/* CUSTOMIZATION: Company Logo/Name - Add your logo image here */}
             <div className="flex items-center">
               {/* Uncomment and customize this for logo image */}
-              <img src="src/images/kamdhenulogo.png" alt="Kamdhenu Industries" className="h-12 w-auto mr-3" />
+              <img src="/src/images/kamdhenulogo.png" alt="Kamdhenu Industries" className="h-12 w-auto mr-3" />
               <div className="text-2xl md:text-3xl font-bold text-amber-800">
                 Kamdhenu Industries
               </div>
@@ -149,7 +149,7 @@ const App = () => {
         <div className="absolute inset-0 z-0">
           {/* Uncomment and add your background image */}
           <img 
-            src="src/images/herobackground.jpg" // Replace with: "/images/factory.jpg"
+            src="/src/images/herobackground.jpg" // Replace with: "/images/factory.jpg"
             alt="Kamdhenu Industries Factory" 
             className="w-full h-full object-cover opacity-90"
           />
@@ -249,21 +249,21 @@ const App = () => {
                 title: "State-of-the-art Factory",
                 description: "Modern facilities in Udhyog Vihar, Gajner, Bikaner",
                 // CUSTOMIZATION: Add factory image
-                image: "src/images/factory.jpg" // Replace with: "/images/factory.jpg"
+                image: "/src/images/factory.jpg" // Replace with: "/images/factory.jpg"
               },
               {
                 icon: <SearchCheck className="w-16 h-16 text-amber-700" />,
                 title: "Quality Assurance",
                 description: "AFS-graded sands meeting industry standards",
                 // CUSTOMIZATION: Add quality control image
-                image: "src/images/qa.jpg" // Replace with: "/images/quality-control.jpg"
+                image: "/src/images/qa.jpg" // Replace with: "/images/quality-control.jpg"
               },
               {
                 icon: <Truck className="w-16 h-16 text-amber-700" />,
                 title: "Trusted Supplier",
                 description: "Serving customers across and beyond Rajasthan",
                 // CUSTOMIZATION: Add logistics/delivery image
-                image: "src/images/supply.jpg"
+                image: "/src/images/supply.jpg"
               }
             ].map((item, index) => (
               <div key={index} className="group bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-500 hover:scale-105 overflow-hidden">
@@ -574,14 +574,14 @@ const App = () => {
             </div> */}
             
             <div className="pt-8 border-t border-amber-800 text-amber-200 text-sm">
-              © 2025 Kamdhenu Industries. All rights reserved. | Designed for Excellence
+              © 2025 Kamdhenu Industries. All rights reserved. | Designed for Excellence by Yash Jain
             </div>
           </div>
         </div>
       </footer>
 
       {/* CUSTOMIZATION: CSS animations - modify as needed */}
-      <style jsx>{`
+      <style>{`
         @keyframes fade-in-up {
           from { opacity: 0; transform: translateY(30px); }
           to { opacity: 1; transform: translateY(0); }

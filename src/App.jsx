@@ -1,6 +1,14 @@
 import { useState, useEffect } from 'react'
 import { Phone, Mail, MapPin, Factory, Shield, Award, Menu, X, Star, ArrowRight, CheckCircle, Truck, Users, Globe, SearchCheck } from 'lucide-react';
 import './App.css'
+import herobackground from './images/herobackground.jpg'; 
+import washedSilica from './images/washed-silica.jpg'; 
+import filterMedia from './images/filter-media.jpg'; 
+import unwashedSilica from './images/unwashed-silica.jpg'; 
+import factoryImage from './images/factory.jpg'; 
+import qaImage from './images/qa.jpg'; 
+import supplyImage from './images/supply.jpg'; 
+import kamdhenuLogo from './images/kamdhenulogo.png'; 
 
 const App = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -43,7 +51,7 @@ const App = () => {
       icon: <Shield className="w-8 h-8 text-amber-700" />,
       features: ["AFS 25-70", "Clay-free", "Industrial grade", "Export quality"],
       // CUSTOMIZATION: Replace with actual product image
-      image: "/src/images/washed-silica.jpg", // Replace with: "/api/placeholder/400/300"
+      image: washedSilica, // Replace with: "/api/placeholder/400/300"
       imageAlt: "High quality washed silica sand"
     },
     {
@@ -52,7 +60,7 @@ const App = () => {
       icon: <Factory className="w-8 h-8 text-amber-700" />,
       features: ["High efficiency", "Durable", "Multi-purpose", "Premium grade"],
       // CUSTOMIZATION: Replace with actual product image
-      image: "/src/images/filter-media.jpg",
+      image: filterMedia,
       imageAlt: "Premium filter media for industrial use"
     },
     {
@@ -61,7 +69,7 @@ const App = () => {
       icon: <Award className="w-8 h-8 text-amber-700" />,
       features: ["16-150 mesh", "Natural quality", "Bulk supply", "Cost effective"],
       // CUSTOMIZATION: Replace with actual product image
-      image: "/src/images/unwashed-silica.jpg",
+      image: unwashedSilica,
       imageAlt: "Natural unwashed silica sand various mesh sizes"
     }
   ];
@@ -88,7 +96,7 @@ const App = () => {
             {/* CUSTOMIZATION: Company Logo/Name - Add your logo image here */}
             <div className="flex items-center">
               {/* Uncomment and customize this for logo image */}
-              <img src="/src/images/kamdhenulogo.png" alt="Kamdhenu Industries" className="h-12 w-auto mr-3" />
+              <img src={kamdhenuLogo} alt="Kamdhenu Industries" className="h-12 w-auto mr-3" />
               <div className="text-2xl md:text-3xl font-bold text-amber-800">
                 Kamdhenu Industries
               </div>
@@ -149,7 +157,7 @@ const App = () => {
         <div className="absolute inset-0 z-0">
           {/* Uncomment and add your background image */}
           <img 
-            src="/src/images/herobackground.jpg" // Replace with: "/images/factory.jpg"
+            src={herobackground}
             alt="Kamdhenu Industries Factory" 
             className="w-full h-full object-cover opacity-90"
           />
@@ -249,21 +257,21 @@ const App = () => {
                 title: "State-of-the-art Factory",
                 description: "Modern facilities in Udhyog Vihar, Gajner, Bikaner",
                 // CUSTOMIZATION: Add factory image
-                image: "/src/images/factory.jpg" // Replace with: "/images/factory.jpg"
+                image: factoryImage
               },
               {
                 icon: <SearchCheck className="w-16 h-16 text-amber-700" />,
                 title: "Quality Assurance",
                 description: "AFS-graded sands meeting industry standards",
                 // CUSTOMIZATION: Add quality control image
-                image: "/src/images/qa.jpg" // Replace with: "/images/quality-control.jpg"
+                image: qaImage
               },
               {
                 icon: <Truck className="w-16 h-16 text-amber-700" />,
                 title: "Trusted Supplier",
                 description: "Serving customers across and beyond Rajasthan",
                 // CUSTOMIZATION: Add logistics/delivery image
-                image: "/src/images/supply.jpg"
+                image: supplyImage
               }
             ].map((item, index) => (
               <div key={index} className="group bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-500 hover:scale-105 overflow-hidden">

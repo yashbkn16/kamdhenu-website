@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "https://kamdhenuindustries.site",
+  "homepage": "https://yashbkn16.github.io/kamdhenu-website",
   "scripts": {
     "dev": "vite",
     "build": "vite build",

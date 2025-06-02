@@ -512,18 +512,18 @@ const App = () => {
               <div className="bg-gray-200 rounded-2xl h-64 flex items-center justify-center">
                 {/* Uncomment and add your Google Maps embed */}
                 <iframe 
-                  src="https://maps.app.goo.gl/ijBfdCW8XKFMyEEv6"
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3523.65213374939!2d73.08511307638715!3d27.97393797603076!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x393f95b6ad53f7b5%3A0xf4ea31bf979448fa!2sKamdhenu%20Industries!5e0!3m2!1sen!2sin!4v1748869975322!5m2!1sen!2sin" 
                   className="w-full h-full rounded-2xl"
-                  allowFullScreen=""
-                  loading="lazy"
+                  allowFullScreen= ""
+                  loading="lazy" 
                   referrerPolicy="no-referrer-when-downgrade"
                 ></iframe>
                 
                 {/* Placeholder - remove when adding map */}
-                <div className="text-center text-gray-500">
+                {/* <div className="text-center text-gray-500">
                   <MapPin className="w-12 h-12 mx-auto mb-2" />
                   <p>Add Google Maps Here</p>
-                </div>
+                </div> */}
               </div>
             </div>
           </div>
@@ -581,7 +581,7 @@ const App = () => {
       </footer>
 
       {/* CUSTOMIZATION: CSS animations - modify as needed */}
-      <style>{`
+      <style >{`
         @keyframes fade-in-up {
           from { opacity: 0; transform: translateY(30px); }
           to { opacity: 1; transform: translateY(0); }

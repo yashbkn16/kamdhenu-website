@@ -18,12 +18,15 @@ import {
 } from "lucide-react";
 import "./App.css";
 import herobackground from "./images/herobackground.jpg";
-import washedSilica from "./images/washed-silica.jpg";
+import constructionImage from "./images/construction.jpg";
+import jcb from "./images/jcb.jpg";
+import foundryImage from "./images/foundry.jpg";
+import pesticidesImage from "./images/pesticides.jpg";
+import glassImage from "./images/glass.jpg";
 import filterMedia from "./images/filter-media.jpg";
 import unwashedSilica from "./images/unwashed-silica.jpg";
 import factoryImage from "./images/factory.jpg";
 import qaImage from "./images/qa.jpg";
-import supplyImage from "./images/supply.jpg";
 import kamdhenuLogo from "./images/kamdhenulogo.png";
 
 const App = () => {
@@ -68,48 +71,93 @@ const App = () => {
   // Replace the placeholder URLs with your actual product images
   const products = [
     {
-      title: "Washed Silica",
+      title: "Glass Industries",
       description:
-        "Clay-free washed silica of highest quality in the industry.",
+        "Clay & Iron free washed natural silica of highest quality in the industry.",
       icon: <Shield className="w-8 h-8 text-amber-700" />,
       features: [
-        "AFS 25-70",
         "Clay-free",
-        "Industrial grade",
+        "Iron-free",
+        "30-120 mesh",
         "Export quality",
       ],
-      image: washedSilica,
-      imageAlt: "High quality washed silica sand",
+      image: glassImage,
+      imageAlt: "High quality washed silica sand for glass industries",
+    },
+    {
+      title: "Foundry Industries",
+      description:
+        "Clay-free washed & unwashed silica for high integrity casting and moulding applications in cast iron, ferrous and non-ferrous foundries.",
+      icon: <Factory className="w-8 h-8 text-amber-700" />,
+      features: [
+        "AFS range from 25 to 75",
+        "High fusion point",
+        "Consistent grain size distribution",
+      ],
+      // CUSTOMIZATION: Replace with actual product image
+      image: foundryImage,
+      imageAlt: "Premium filter media for industrial use",
+    },
+    {
+      title: "Pesticides Industries",
+      description:
+        "Precipitated high-quality silica enhances the stability and performance of various pesticide formulations.",
+      icon: <Award className="w-8 h-8 text-amber-700" />,
+      features: [
+        "16-32 Mesh",
+        "Amorphous form",
+        "Excellent absorption",
+        "PH value ranging from 6-7",
+      ],
+      // CUSTOMIZATION: Replace with actual product image
+      image: pesticidesImage,
+      imageAlt: "Natural silica sand for pesticides industries",
     },
     {
       title: "Filter Media",
       description:
-        "High-quality Filter Media for effective filtration solutions.",
-      icon: <Factory className="w-8 h-8 text-amber-700" />,
+        "Bulk Filter Media",
+      icon: <Truck className="w-8 h-8 text-amber-700" />,
       features: [
-        "High efficiency",
-        "High density",
-        "Multi-purpose",
-        "Premium grade",
+        "04-16 mesh",
+        "Washed & Unwashed",
+        "Bulk supply available",
+        "Cost effective",
       ],
       // CUSTOMIZATION: Replace with actual product image
       image: filterMedia,
-      imageAlt: "Premium filter media for industrial use",
+      imageAlt: "Filter Media"
+    },
+    {
+      title: "Construction & Civil Engineering",
+      description:
+        "High quality natural silica sand for effective tiles adhesive solutions.",
+      icon: <Users className="w-8 h-8 text-amber-700" />,
+      features: [
+        "30-120 mesh",
+        "Washed & Unwashed",
+        "High effeciency",
+        "Bulk supply available",
+        "Cost effective",
+      ],
+      image: constructionImage,
+      imageAlt: "High quality silica sand for construction and civil engineering",
     },
     {
       title: "Unwashed Silica",
-      description: "High-quality unwashed silica sand from Bikaner.",
-      icon: <Award className="w-8 h-8 text-amber-700" />,
+      description:
+        "Natural silica sand various mesh sizes for multiple applications.",
+      icon: <Globe className="w-8 h-8 text-amber-700" />,
       features: [
-        "04-150 mesh",
+        "16-32 mesh",
+        "High density",
         "Natural quality",
         "Bulk supply",
         "Cost effective",
       ],
-      // CUSTOMIZATION: Replace with actual product image
       image: unwashedSilica,
       imageAlt: "Natural unwashed silica sand various mesh sizes",
-    },
+    }
   ];
 
   // CUSTOMIZATION: Company statistics - update these numbers as needed
@@ -306,16 +354,16 @@ const App = () => {
             </h2>
             <div className="max-w-4xl mx-auto">
               <p className="text-xl text-gray-700 leading-relaxed mb-6">
-                Established in 2013 and based in Gajner, Bikaner (Rajasthan),
+                Established in 2013 and based in Gajner, Bikaner (Rajasthan).
                 Kamdhenu Industries is a trusted manufacturer and supplier of
                 washed and unwashed silica sand. Our products are widely used in
-                industries such as glass, water treatment, foundries,
-                construction, and filtration systems.
+                industries such as glass, foundries, pesticides, water filteration,
+                construction etc.
               </p>
               <p className="text-lg text-gray-600 leading-relaxed">
-                We are known for delivering high-purity, consistent-grade sand,
-                processed at our advanced facility in Udhyog Vihar, Gajner. Our
-                commitment to quality, timely delivery, and customer
+                We are known for delivering high purity, consistent grade sand,
+                processed at our advanced facility.
+                Our commitment to quality, timely delivery, and customer
                 satisfaction has helped us build long-standing relationships
                 across multiple states in India. With over a decade of
                 experience and a dedicated team, Kamdhenu Industries ensures
@@ -350,7 +398,7 @@ const App = () => {
                 description:
                   "Serving customers beyond Rajasthan across India (global reach)",
                 // CUSTOMIZATION: Add logistics/delivery image
-                image: supplyImage,
+                image: jcb,
               },
             ].map((item, index) => (
               <div
@@ -589,20 +637,20 @@ const App = () => {
                   },
                   {
                     icon: <Phone className="w-8 h-8 text-green-600" />,
-                    title: "Anil kr. Jain (Owner)",
+                    title: "Anil kr. Jain (CEO)",
                     content: (
-                        <span className="block text-gray-700">
+                        <a href="tel:+919414088409" className="block text-gray-700 hover:underline">
                           +91-9414088409
-                        </span>
+                        </a>
                     ),
                   },
                   {
                     icon: <Mail className="w-8 h-8 text-blue-600" />,
                     title: "Email Us",
                     content: (
-                      <span className="text-gray-700">
+                      <a href="mailto:kamdhenugbr@gmail.com" className="text-gray-700 hover:underline">
                         kamdhenugbr@gmail.com
-                      </span>
+                      </a>
                     ),
                   },
                 ].map((item, index) => (

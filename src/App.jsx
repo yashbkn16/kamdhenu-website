@@ -57,25 +57,30 @@ const App = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    if (!formData.name || !formData.email || !formData.phone || !formData.consent) {
+    // Basic validation
+    if (!formData.name || !formData.email || !formData.phone) {
       alert("Please fill all required fields and agree to the terms.");
       return;
     }
 
     const scriptURL = "https://script.google.com/macros/s/AKfycbyPO8YgH6M-sZa1n5My8YdCCz51VHs1v7_WJgzAh6gz5gbYGxSJqx7G7AQP1mPdxIU/exec";
 
+    // Prepare form data
+    const formDataToSend = new FormData();
+    formDataToSend.append("name", formData.name);
+    formDataToSend.append("email", formData.email);
+    formDataToSend.append("phone", formData.phone);
+    formDataToSend.append("message", formData.message);
+    formDataToSend.append("consent", formData.consent ? "Yes" : "No");
+
     try {
       const response = await fetch(scriptURL, {
         method: "POST",
-        body: JSON.stringify(formData),
-        headers: {
-          "Content-Type": "application/json",
-        },
+        body: formDataToSend,
       });
 
-      const result = await response.json();
-
-      if (result.result === "Success") {
+      const text = await response.text();
+      if (text.toLowerCase().includes("success")) {
         alert("Thank you for your inquiry! We will get back to you soon.");
         setFormData({
           name: "",
@@ -87,12 +92,11 @@ const App = () => {
       } else {
         alert("Submission failed. Please try again.");
       }
-    // eslint-disable-next-line no-unused-vars
-    } catch (e) {
+    } catch (error) {
       alert("Error submitting the form. Please check your network.");
+      console.error("Submission error:", error);
     }
   };
-
 
   // CUSTOMIZATION: Add your product images here
   // Replace the placeholder URLs with your actual product images

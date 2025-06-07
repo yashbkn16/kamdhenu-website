@@ -54,18 +54,45 @@ const App = () => {
     }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("Form submitted:", formData);
-    alert("Thank you for your inquiry! We will get back to you soon.");
-    setFormData({
-      name: "",
-      email: "",
-      phone: "",
-      message: "",
-      consent: false,
-    });
+
+    if (!formData.name || !formData.email || !formData.phone || !formData.consent) {
+      alert("Please fill all required fields and agree to the terms.");
+      return;
+    }
+
+    const scriptURL = "https://script.google.com/macros/s/AKfycbyPO8YgH6M-sZa1n5My8YdCCz51VHs1v7_WJgzAh6gz5gbYGxSJqx7G7AQP1mPdxIU/exec";
+
+    try {
+      const response = await fetch(scriptURL, {
+        method: "POST",
+        body: JSON.stringify(formData),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+
+      const result = await response.json();
+
+      if (result.result === "Success") {
+        alert("Thank you for your inquiry! We will get back to you soon.");
+        setFormData({
+          name: "",
+          email: "",
+          phone: "",
+          message: "",
+          consent: false,
+        });
+      } else {
+        alert("Submission failed. Please try again.");
+      }
+    // eslint-disable-next-line no-unused-vars
+    } catch (e) {
+      alert("Error submitting the form. Please check your network.");
+    }
   };
+
 
   // CUSTOMIZATION: Add your product images here
   // Replace the placeholder URLs with your actual product images
@@ -498,7 +525,12 @@ const App = () => {
                   </div>
 
                   {/* CUSTOMIZATION: Add product inquiry button */}
-                  <button className="mt-6 w-full bg-amber-100 hover:bg-amber-200 text-amber-800 py-3 px-4 rounded-lg font-semibold transition-colors duration-300">
+                  <button 
+                    className="mt-6 w-full bg-amber-100 hover:bg-amber-200 text-amber-800 py-3 px-4 rounded-lg font-semibold transition-colors duration-300"
+                    onClick={() => {
+                      document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
+                    }}
+                  >
                     Inquire About This Product
                   </button>
                 </div>

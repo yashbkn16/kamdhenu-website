@@ -637,7 +637,7 @@ const App = () => {
                   },
                   {
                     icon: <Phone className="w-8 h-8 text-green-600" />,
-                    title: "Anil kr. Jain (CEO)",
+                    title: "Anil kr. Jain",
                     content: (
                         <a href="tel:+919414088409" className="block text-gray-700 hover:underline">
                           +91-9414088409

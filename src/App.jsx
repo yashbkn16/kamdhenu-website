@@ -116,7 +116,7 @@ const App = () => {
     {
       title: "Filter Media",
       description:
-        "Bulk Filter Media",
+        "High quality washed and unwashed silica sand for water filtration and other industrial applications. We offer bulk supply at competitive prices.",
       icon: <Truck className="w-8 h-8 text-amber-700" />,
       features: [
         "04-16 mesh",
@@ -131,7 +131,7 @@ const App = () => {
     {
       title: "Construction & Civil Engineering",
       description:
-        "High quality natural silica sand for effective tiles adhesive solutions.",
+        "Silica sand for effective tiles adhesive solutions.",
       icon: <Users className="w-8 h-8 text-amber-700" />,
       features: [
         "30-120 mesh",
@@ -380,7 +380,7 @@ const App = () => {
                 icon: <Factory className="w-16 h-16 text-amber-700" />,
                 title: "State-of-the-art Factory",
                 description:
-                  "Modern facilities in Udhyog Vihar, Gajner, Bikaner",
+                  "Equipped with high-capacity crushers, magnetic separators, and automated sieving systems, our plant ensures consistent production of industrial-grade silica sand. Continuous upgrades and process automation help us meet large-scale demands efficiently.",
                 // CUSTOMIZATION: Add factory image
                 image: factoryImage,
               },
@@ -388,7 +388,7 @@ const App = () => {
                 icon: <SearchCheck className="w-16 h-16 text-amber-700" />,
                 title: "Quality Assurance",
                 description:
-                  "AFS & mesh graded sands meeting industry standards",
+                  "Each batch undergoes rigorous testing in our in-house lab for grain fineness (AFS), moisture, silt content, and chemical purity. We ensure zero deviation from technical specs — trusted by foundries, pesticide manufacturers, and glass industries alike.",
                 // CUSTOMIZATION: Add quality control image
                 image: qaImage,
               },
@@ -396,7 +396,7 @@ const App = () => {
                 icon: <Truck className="w-16 h-16 text-amber-700" />,
                 title: "Trusted Supplier",
                 description:
-                  "Serving customers beyond Rajasthan across India (global reach)",
+                  "With decades of market presence, we are a preferred partner for bulk silica sand needs. Our robust logistics and timely delivery make us a reliable vendor for clients from Punjab to Tamil Nadu — and expanding globally.",
                 // CUSTOMIZATION: Add logistics/delivery image
                 image: jcb,
               },

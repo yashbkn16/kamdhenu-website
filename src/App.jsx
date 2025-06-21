@@ -52,10 +52,12 @@ const App = () => {
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (!isMenuOpen) return;
-      
+
       if (
-        menuRef.current && !menuRef.current.contains(event.target) &&
-        buttonRef.current && !buttonRef.current.contains(event.target)
+        menuRef.current &&
+        !menuRef.current.contains(event.target) &&
+        buttonRef.current &&
+        !buttonRef.current.contains(event.target)
       ) {
         setIsMenuOpen(false);
       }
@@ -84,7 +86,8 @@ const App = () => {
       return;
     }
 
-    const scriptURL = "https://script.google.com/macros/s/AKfycbyPO8YgH6M-sZa1n5My8YdCCz51VHs1v7_WJgzAh6gz5gbYGxSJqx7G7AQP1mPdxIU/exec";
+    const scriptURL =
+      "https://script.google.com/macros/s/AKfycbyPO8YgH6M-sZa1n5My8YdCCz51VHs1v7_WJgzAh6gz5gbYGxSJqx7G7AQP1mPdxIU/exec";
 
     const formDataToSend = new FormData();
     formDataToSend.append("name", formData.name);
@@ -124,12 +127,7 @@ const App = () => {
       description:
         "Clay & Iron free washed natural silica of highest quality in the industry.",
       icon: <Shield className="w-8 h-8 text-amber-700" />,
-      features: [
-        "Clay-free",
-        "Iron-free",
-        "30-120 mesh",
-        "Export quality",
-      ],
+      features: ["Clay-free", "Iron-free", "30-120 mesh", "Export quality"],
       image: glassImage,
       imageAlt: "High quality washed silica sand for glass industries",
     },
@@ -172,12 +170,11 @@ const App = () => {
         "Cost effective",
       ],
       image: filterMedia,
-      imageAlt: "Filter Media"
+      imageAlt: "Filter Media",
     },
     {
       title: "Construction & Civil Engineering",
-      description:
-        "Silica sand for effective tiles adhesive solutions.",
+      description: "Silica sand for effective tiles adhesive solutions.",
       icon: <Users className="w-8 h-8 text-amber-700" />,
       features: [
         "30-120 mesh",
@@ -187,7 +184,8 @@ const App = () => {
         "Cost effective",
       ],
       image: constructionImage,
-      imageAlt: "High quality silica sand for construction and civil engineering",
+      imageAlt:
+        "High quality silica sand for construction and civil engineering",
     },
     {
       title: "Unwashed Silica",
@@ -203,7 +201,7 @@ const App = () => {
       ],
       image: unwashedSilica,
       imageAlt: "Natural unwashed silica sand various mesh sizes",
-    }
+    },
   ];
 
   const stats = [
@@ -284,14 +282,21 @@ const App = () => {
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
                 className="text-amber-800 hover:text-amber-900 p-2 rounded-lg hover:bg-amber-100 transition-colors duration-300"
               >
-                {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+                {isMenuOpen ? (
+                  <X className="h-6 w-6" />
+                ) : (
+                  <Menu className="h-6 w-6" />
+                )}
               </button>
             </div>
           </div>
         </div>
 
         {isMenuOpen && (
-          <div ref={menuRef} className="md:hidden bg-yellow-100 backdrop-blur-md border-t border-amber-200">
+          <div
+            ref={menuRef}
+            className="md:hidden bg-yellow-100 backdrop-blur-md border-t border-amber-200"
+          >
             <div className="px-4 pt-3 pb-4 space-y-2">
               {navLinks.map((item) => (
                 <a
@@ -347,7 +352,9 @@ const App = () => {
               <a
                 className="text-white group bg-amber-700 hover:bg-amber-800 px-8 py-4 rounded-full text-lg font-semibold shadow-lg hover:shadow-xl transition-all duration-300 flex items-center gap-2 hover:scale-105 visited:!text-white"
                 onClick={() => {
-                  document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
+                  document
+                    .getElementById("contact")
+                    ?.scrollIntoView({ behavior: "smooth" });
                 }}
               >
                 Get Started
@@ -356,7 +363,9 @@ const App = () => {
               <a
                 className="group border-2 border-amber-700 px-8 py-4 rounded-full text-lg font-semibold hover:bg-amber-700 hover:text-white transition-all duration-300 hover:scale-105 visited:!text-amber-900"
                 onClick={() => {
-                  document.getElementById("products")?.scrollIntoView({ behavior: "smooth" });
+                  document
+                    .getElementById("products")
+                    ?.scrollIntoView({ behavior: "smooth" });
                 }}
               >
                 View Products
@@ -400,18 +409,18 @@ const App = () => {
                 Established in 2013 and based in Gajner, Bikaner (Rajasthan).
                 Kamdhenu Industries is a trusted manufacturer and supplier of
                 washed and unwashed silica sand. Our products are widely used in
-                industries such as glass, foundries, pesticides, water filteration,
-                construction etc.
+                industries such as glass, foundries, pesticides, water
+                filteration, construction etc.
               </p>
               <p className="text-lg text-gray-600 leading-relaxed">
                 We are known for delivering high purity, consistent grade sand,
-                processed at our advanced facility.
-                Our commitment to quality, timely delivery, and customer
-                satisfaction has helped us build long-standing relationships
-                across multiple states in India. With over a decade of
-                experience and a dedicated team, Kamdhenu Industries ensures
-                that every batch of material meets rigorous standards of
-                cleanliness, reliability, and industrial performance.
+                processed at our advanced facility. Our commitment to quality,
+                timely delivery, and customer satisfaction has helped us build
+                long-standing relationships across multiple states in India.
+                With over a decade of experience and a dedicated team, Kamdhenu
+                Industries ensures that every batch of material meets rigorous
+                standards of cleanliness, reliability, and industrial
+                performance.
               </p>
             </div>
           </div>
@@ -529,10 +538,12 @@ const App = () => {
                     ))}
                   </div>
 
-                  <button 
+                  <button
                     className="mt-6 w-full bg-amber-100 hover:bg-amber-200 text-amber-800 py-3 px-4 rounded-lg font-semibold transition-colors duration-300"
                     onClick={() => {
-                      document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
+                      document
+                        .getElementById("contact")
+                        ?.scrollIntoView({ behavior: "smooth" });
                     }}
                   >
                     Inquire About This Product
@@ -673,7 +684,10 @@ const App = () => {
                     icon: <Phone className="w-8 h-8 text-green-600" />,
                     title: "Anil kr. Jain",
                     content: (
-                      <a href="tel:+919414088409" className="block text-gray-700 hover:underline">
+                      <a
+                        href="tel:+919414088409"
+                        className="block text-gray-700 hover:underline"
+                      >
                         +91-9414088409
                       </a>
                     ),
@@ -682,7 +696,10 @@ const App = () => {
                     icon: <Mail className="w-8 h-8 text-blue-600" />,
                     title: "Email Us",
                     content: (
-                      <a href="mailto:kamdhenugbr@gmail.com" className="text-gray-700 hover:underline">
+                      <a
+                        href="mailto:kamdhenugbr@gmail.com"
+                        className="text-gray-700 hover:underline"
+                      >
                         kamdhenugbr@gmail.com
                       </a>
                     ),
@@ -697,9 +714,7 @@ const App = () => {
                       <h4 className="font-semibold text-gray-900 mb-2 text-lg">
                         {item.title}
                       </h4>
-                      <div className="text-gray-600">
-                        {item.content}
-                      </div>
+                      <div className="text-gray-600">{item.content}</div>
                     </div>
                   </div>
                 ))}

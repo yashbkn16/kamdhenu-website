@@ -79,7 +79,6 @@ const App = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // Basic validation
     if (!formData.name || !formData.email || !formData.phone) {
       alert("Please fill all required fields and agree to the terms.");
       return;
@@ -87,7 +86,6 @@ const App = () => {
 
     const scriptURL = "https://script.google.com/macros/s/AKfycbyPO8YgH6M-sZa1n5My8YdCCz51VHs1v7_WJgzAh6gz5gbYGxSJqx7G7AQP1mPdxIU/exec";
 
-    // Prepare form data
     const formDataToSend = new FormData();
     formDataToSend.append("name", formData.name);
     formDataToSend.append("email", formData.email);
@@ -120,8 +118,6 @@ const App = () => {
     }
   };
 
-  // CUSTOMIZATION: Add your product images here
-  // Replace the placeholder URLs with your actual product images
   const products = [
     {
       title: "Glass Industries",
@@ -147,7 +143,6 @@ const App = () => {
         "High fusion point",
         "Consistent grain size distribution",
       ],
-      // CUSTOMIZATION: Replace with actual product image
       image: foundryImage,
       imageAlt: "Premium filter media for industrial use",
     },
@@ -162,7 +157,6 @@ const App = () => {
         "Excellent absorption",
         "PH value ranging from 6-7",
       ],
-      // CUSTOMIZATION: Replace with actual product image
       image: pesticidesImage,
       imageAlt: "Natural silica sand for pesticides industries",
     },
@@ -177,7 +171,6 @@ const App = () => {
         "Bulk supply available",
         "Cost effective",
       ],
-      // CUSTOMIZATION: Replace with actual product image
       image: filterMedia,
       imageAlt: "Filter Media"
     },
@@ -213,7 +206,6 @@ const App = () => {
     }
   ];
 
-  // CUSTOMIZATION: Company statistics - update these numbers as needed
   const stats = [
     {
       number: "12+",
@@ -238,9 +230,9 @@ const App = () => {
   ];
 
   const handleLinkClick = (e, targetId) => {
-    e.preventDefault(); // Prevent the default instant jump
+    e.preventDefault();
     document.getElementById(targetId)?.scrollIntoView({ behavior: "smooth" });
-    setIsMenuOpen(false); // Close the mobile menu
+    setIsMenuOpen(false);
   };
 
   const navLinks = ["Home", "About", "Products", "Contact"];
@@ -248,7 +240,6 @@ const App = () => {
   return (
     <div className="w-full min-h-screen overflow-x-hidden bg-gradient-to-br from-amber-50 via-orange-50 to-yellow-50 text-gray-800">
       {/* NAVIGATION SECTION */}
-      {/* CUSTOMIZATION: Change colors by modifying bg-white/95, text colors, and hover states */}
       <nav
         className={`fixed top-0 w-full z-50 transition-all duration-300 ${
           scrollY > 50
@@ -318,14 +309,11 @@ const App = () => {
       </nav>
 
       {/* HERO SECTION */}
-      {/* CUSTOMIZATION: Replace background image, update text content, modify colors */}
       <section
         id="home"
         className="relative min-h-screen flex items-center justify-center pt-20"
       >
-        {/* CUSTOMIZATION: Background Image - Add your factory/facility image here */}
         <div className="absolute inset-0 z-0">
-          {/* Uncomment and add your background image */}
           <img
             src={herobackground}
             alt="Kamdhenu Industries Factory"
@@ -336,7 +324,6 @@ const App = () => {
 
         <div className="relative z-10 w-full px-4 sm:px-6 lg:px-8 text-center">
           <div className="animate-fade-in-up max-w-4xl mx-auto bg-white/10 backdrop-blur-md rounded-2xl p-6 md:p-10 shadow-xl">
-            {/* CUSTOMIZATION: Main heading - modify text and colors */}
             <h1 className="text-5xl md:text-7xl font-bold mb-8 text-amber-900">
               QUALITY SILICA SOLUTIONS
             </h1>
@@ -344,7 +331,7 @@ const App = () => {
               Your Trusted Sand Supplier
             </p>
 
-            {/* Company description - professionally reworded */}
+            {/* Company description */}
             <div className="max-w-4xl mx-auto mb-12">
               <p className="text-xl text-gray-900 leading-relaxed mb-8">
                 Kamdhenu Industries is a leading producer of Premium Natural
@@ -356,7 +343,6 @@ const App = () => {
               </p>
             </div>
 
-            {/* CUSTOMIZATION: Call-to-action buttons - modify text and links */}
             <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
               <a
                 className="text-white group bg-amber-700 hover:bg-amber-800 px-8 py-4 rounded-full text-lg font-semibold shadow-lg hover:shadow-xl transition-all duration-300 flex items-center gap-2 hover:scale-105 visited:!text-white"
@@ -381,7 +367,6 @@ const App = () => {
       </section>
 
       {/* STATISTICS SECTION */}
-      {/* CUSTOMIZATION: Update statistics, colors, and icons */}
       <section className="py-20 bg-white/50 backdrop-blur-sm">
         <div className="w-full px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
@@ -404,10 +389,8 @@ const App = () => {
       </section>
 
       {/* ABOUT SECTION */}
-      {/* CUSTOMIZATION: Update company information, add company images */}
       <section id="about" className="py-20">
         <div className="w-full px-4 sm:px-6 lg:px-8">
-          {/* CUSTOMIZATION: Section heading and description */}
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold mb-6 text-amber-900">
               About Kamdhenu Industries
@@ -433,7 +416,6 @@ const App = () => {
             </div>
           </div>
 
-          {/* CUSTOMIZATION: Company features/services cards */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {[
               {
@@ -441,7 +423,6 @@ const App = () => {
                 title: "State-of-the-art Factory",
                 description:
                   "Equipped with high-capacity crushers, magnetic separators, and automated sieving systems, our plant ensures consistent production of industrial-grade silica sand. Continuous upgrades and process automation help us meet large-scale demands efficiently.",
-                // CUSTOMIZATION: Add factory image
                 image: factoryImage,
               },
               {
@@ -449,7 +430,6 @@ const App = () => {
                 title: "Quality Assurance",
                 description:
                   "Each batch undergoes rigorous testing in our in-house lab for grain fineness (AFS), moisture, silt content, and chemical purity. We ensure zero deviation from technical specs — trusted by foundries, pesticide manufacturers, and glass industries alike.",
-                // CUSTOMIZATION: Add quality control image
                 image: qaImage,
               },
               {
@@ -457,7 +437,6 @@ const App = () => {
                 title: "Trusted Supplier",
                 description:
                   "With decades of market presence, we are a preferred partner for bulk silica sand needs. Our robust logistics and timely delivery make us a reliable vendor for clients from Punjab to Tamil Nadu — and expanding globally.",
-                // CUSTOMIZATION: Add logistics/delivery image
                 image: jcb,
               },
             ].map((item, index) => (
@@ -465,9 +444,7 @@ const App = () => {
                 key={index}
                 className="group bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-500 hover:scale-105 overflow-hidden"
               >
-                {/* CUSTOMIZATION: Feature image placeholder */}
                 <div className="h-48 bg-amber-100 flex items-center justify-center overflow-hidden">
-                  {/* Uncomment to use actual images */}
                   <img
                     src={item.image}
                     alt={item.title}
@@ -493,13 +470,11 @@ const App = () => {
       </section>
 
       {/* PRODUCTS SECTION */}
-      {/* CUSTOMIZATION: This is where your main product images go */}
       <section
         id="products"
         className="py-20 bg-gradient-to-r from-amber-50 to-orange-50"
       >
         <div className="w-full px-4 sm:px-6 lg:px-8">
-          {/* CUSTOMIZATION: Products section heading */}
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold mb-6 text-amber-900">
               QUALITY SILICA SANDS
@@ -509,16 +484,13 @@ const App = () => {
             </p>
           </div>
 
-          {/* CUSTOMIZATION: Product cards with images */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {products.map((product, index) => (
               <div
                 key={index}
                 className="group bg-white rounded-3xl shadow-lg hover:shadow-xl transition-all duration-500 hover:scale-105 overflow-hidden"
               >
-                {/* CUSTOMIZATION: Product Image Section */}
                 <div className="h-64 bg-gradient-to-br from-amber-100 to-orange-100 flex items-center justify-center overflow-hidden relative">
-                  {/* Uncomment to use actual product images */}
                   <img
                     src={product.image}
                     alt={product.imageAlt}
@@ -557,7 +529,6 @@ const App = () => {
                     ))}
                   </div>
 
-                  {/* CUSTOMIZATION: Add product inquiry button */}
                   <button 
                     className="mt-6 w-full bg-amber-100 hover:bg-amber-200 text-amber-800 py-3 px-4 rounded-lg font-semibold transition-colors duration-300"
                     onClick={() => {
@@ -574,7 +545,6 @@ const App = () => {
       </section>
 
       {/* CONTACT SECTION */}
-      {/* CUSTOMIZATION: Update contact information and form fields */}
       <section id="contact" className="py-20 bg-yellow-100">
         <div className="w-full px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
@@ -594,7 +564,6 @@ const App = () => {
               </h3>
 
               <div className="space-y-6">
-                {/* CUSTOMIZATION: Form fields - add/remove as needed */}
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-2">
                     Name *
@@ -736,9 +705,7 @@ const App = () => {
                 ))}
               </div>
 
-              {/* CUSTOMIZATION: Add Google Maps embed here */}
               <div className="bg-gray-200 rounded-2xl h-64 flex items-center justify-center">
-                {/* Uncomment and add your Google Maps embed */}
                 <iframe
                   src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3523.65213374939!2d73.08511307638715!3d27.97393797603076!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x393f95b6ad53f7b5%3A0xf4ea31bf979448fa!2sKamdhenu%20Industries!5e0!3m2!1sen!2sin!4v1748869975322!5m2!1sen!2sin"
                   className="w-full h-full rounded-2xl"
@@ -746,12 +713,6 @@ const App = () => {
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
                 ></iframe>
-
-                {/* Placeholder - remove when adding map */}
-                {/* <div className="text-center text-gray-500">
-                  <MapPin className="w-12 h-12 mx-auto mb-2" />
-                  <p>Add Google Maps Here</p>
-                </div> */}
               </div>
             </div>
           </div>
@@ -759,13 +720,9 @@ const App = () => {
       </section>
 
       {/* FOOTER SECTION */}
-      {/* CUSTOMIZATION: Update footer content, add social media links */}
       <footer className="bg-amber-900 text-white py-12">
         <div className="w-full px-4 sm:px-6 lg:px-8">
           <div className="text-center">
-            {/* CUSTOMIZATION: Add footer logo */}
-            {/* <img src="/images/logo-white.png" alt="Kamdhenu Industries" className="h-16 mx-auto mb-4" /> */}
-
             <h3 className="text-3xl font-bold mb-4">Kamdhenu Industries</h3>
             <p className="text-amber-200 mb-6 text-lg">
               Natural Silica Sand - Premium Quality Solutions
@@ -800,13 +757,12 @@ const App = () => {
 
             <div className="pt-8 border-t border-amber-800 text-amber-200 text-sm">
               © 2025 Kamdhenu Industries. All rights reserved. | Designed for
-              Excellence by Yash Jain
+              Excellence by <b>Yash Jain</b>
             </div>
           </div>
         </div>
       </footer>
 
-      {/* CUSTOMIZATION: CSS animations - modify as needed */}
       <style>{`
         @keyframes fade-in-up {
           from { opacity: 0; transform: translateY(30px); }

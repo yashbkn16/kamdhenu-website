@@ -247,8 +247,10 @@ const App = () => {
                 {["Home", "About", "Products", "Contact"].map((item) => (
                   <a
                     key={item}
-                    href={`#${item.toLowerCase()}`}
                     className="text-gray-700 hover:text-amber-700 px-4 py-2 text-sm font-medium transition-all duration-300 hover:bg-amber-100 rounded-lg relative group"
+                    onClick={() => {
+                      document.getElementById(`${item.toLowerCase()}`)?.scrollIntoView({ behavior: "smooth" });
+                    }}
                   >
                     {item}
                     <span className="absolute inset-x-0 -bottom-1 h-0.5 bg-amber-600 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></span>
@@ -334,15 +336,19 @@ const App = () => {
             {/* CUSTOMIZATION: Call-to-action buttons - modify text and links */}
             <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
               <a
-                href="#contact"
                 className="text-white group bg-amber-700 hover:bg-amber-800 px-8 py-4 rounded-full text-lg font-semibold shadow-lg hover:shadow-xl transition-all duration-300 flex items-center gap-2 hover:scale-105 visited:!text-white"
+                onClick={() => {
+                  document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
+                }}
               >
                 Get Started
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
               </a>
               <a
-                href="#products"
                 className="group border-2 border-amber-700 px-8 py-4 rounded-full text-lg font-semibold hover:bg-amber-700 hover:text-white transition-all duration-300 hover:scale-105 visited:!text-amber-900"
+                onClick={() => {
+                  document.getElementById("products")?.scrollIntoView({ behavior: "smooth" });
+                }}
               >
                 View Products
               </a>

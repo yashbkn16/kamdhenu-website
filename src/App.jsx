@@ -79,45 +79,37 @@ const App = () => {
   };
 
   const handleSubmit = async (e) => {
-    e.preventDefault();
-
     if (!formData.name || !formData.email || !formData.phone) {
       alert("Please fill all required fields and agree to the terms.");
       return;
     }
 
-    const scriptURL =
-      "https://script.google.com/macros/s/AKfycbyPO8YgH6M-sZa1n5My8YdCCz51VHs1v7_WJgzAh6gz5gbYGxSJqx7G7AQP1mPdxIU/exec";
-
-    const formDataToSend = new FormData();
-    formDataToSend.append("name", formData.name);
-    formDataToSend.append("email", formData.email);
-    formDataToSend.append("phone", formData.phone);
-    formDataToSend.append("message", formData.message);
-    formDataToSend.append("consent", formData.consent ? "Yes" : "No");
+    e.preventDefault();
+    const scriptURL = "https://script.google.com/macros/s/AKfycbzFBnUZy6BMreVOCE-aIHOltQpuFbmDqjSmvPk_Ci5gsvkhg_xC1zyy_iNrWTJMrrz2/exec";
+    const formDataToSend = new FormData(e.target);
 
     try {
       const response = await fetch(scriptURL, {
         method: "POST",
         body: formDataToSend,
       });
-
-      const text = await response.text();
-      if (text.toLowerCase().includes("success")) {
-        alert("Thank you for your inquiry! We will get back to you soon.");
+      
+      if (response.ok) {
+        alert("Thank you for your enquiry! We will get back to you soon.");
         setFormData({
           name: "",
           email: "",
           phone: "",
           message: "",
-          consent: false,
         });
       } else {
-        alert("Submission failed. Please try again.");
+        const errorData = await response.json();
+        console.error("Submission failed on Google's side:", errorData);
+        alert("Submission failed. Please try again later.");
       }
     } catch (error) {
-      alert("Error submitting the form. Please check your network.");
       console.error("Submission error:", error);
+      alert("Error submitting the form. Please check your network connection.");
     }
   };
 
@@ -546,7 +538,7 @@ const App = () => {
                         ?.scrollIntoView({ behavior: "smooth" });
                     }}
                   >
-                    Inquire About This Product
+                    Enquire About This Product
                   </button>
                 </div>
               </div>
@@ -641,7 +633,7 @@ const App = () => {
                   />
                   <label className="ml-2 text-sm text-gray-600">
                     I allow this website to store my submission so they can
-                    respond to my inquiry. *
+                    respond to my enquiry. *
                   </label>
                 </div> */}
 
@@ -649,7 +641,7 @@ const App = () => {
                   onClick={handleSubmit}
                   className="w-full bg-amber-700 hover:bg-amber-800 text-white py-3 px-6 rounded-xl font-semibold shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 flex items-center justify-center gap-2"
                 >
-                  SUBMIT MESSAGE
+                  SUBMIT ENQUIRY
                   <ArrowRight className="w-5 h-5" />
                 </button>
               </div>
@@ -682,7 +674,7 @@ const App = () => {
                   },
                   {
                     icon: <Phone className="w-8 h-8 text-green-600" />,
-                    title: "Anil kr. Jain",
+                    title: "Anil Kr. Jain",
                     content: (
                       <a
                         href="tel:+919414088409"

@@ -79,14 +79,20 @@ const App = () => {
   };
 
   const handleSubmit = async (e) => {
+    e.preventDefault();
+
     if (!formData.name || !formData.email || !formData.phone) {
-      alert("Please fill all required fields and agree to the terms.");
+      alert("Please fill all required fields.");
       return;
     }
 
-    e.preventDefault();
     const scriptURL = "https://script.google.com/macros/s/AKfycbzFBnUZy6BMreVOCE-aIHOltQpuFbmDqjSmvPk_Ci5gsvkhg_xC1zyy_iNrWTJMrrz2/exec";
-    const formDataToSend = new FormData(e.target);
+
+    const formDataToSend = new FormData();
+    formDataToSend.append("name", formData.name);
+    formDataToSend.append("email", formData.email);
+    formDataToSend.append("phone", formData.phone);
+    formDataToSend.append("message", formData.message);
 
     try {
       const response = await fetch(scriptURL, {

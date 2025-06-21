@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import {
   Phone,
   Mail,
@@ -45,6 +45,28 @@ const App = () => {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  const menuRef = useRef(null);
+  const buttonRef = useRef(null);
+
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (!isMenuOpen) return;
+      
+      if (
+        menuRef.current && !menuRef.current.contains(event.target) &&
+        buttonRef.current && !buttonRef.current.contains(event.target)
+      ) {
+        setIsMenuOpen(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [isMenuOpen]);
 
   const handleInputChange = (e) => {
     const { name, value, type, checked } = e.target;
@@ -215,6 +237,14 @@ const App = () => {
     },
   ];
 
+  const handleLinkClick = (e, targetId) => {
+    e.preventDefault(); // Prevent the default instant jump
+    document.getElementById(targetId)?.scrollIntoView({ behavior: "smooth" });
+    setIsMenuOpen(false); // Close the mobile menu
+  };
+
+  const navLinks = ["Home", "About", "Products", "Contact"];
+
   return (
     <div className="w-full min-h-screen overflow-x-hidden bg-gradient-to-br from-amber-50 via-orange-50 to-yellow-50 text-gray-800">
       {/* NAVIGATION SECTION */}
@@ -228,9 +258,7 @@ const App = () => {
       >
         <div className="w-full px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-20">
-            {/* CUSTOMIZATION: Company Logo/Name - Add your logo image here */}
             <div className="flex items-center">
-              {/* Uncomment and customize this for logo image */}
               <img
                 src={kamdhenuLogo}
                 alt="Kamdhenu Industries"
@@ -241,16 +269,15 @@ const App = () => {
               </div>
             </div>
 
-            {/* Desktop Menu - CUSTOMIZATION: Add/remove menu items here */}
+            {/* Desktop Menu */}
             <div className="hidden md:block">
               <div className="ml-10 flex items-baseline space-x-8">
-                {["Home", "About", "Products", "Contact"].map((item) => (
+                {navLinks.map((item) => (
                   <a
                     key={item}
+                    href={`#${item.toLowerCase()}`}
+                    onClick={(e) => handleLinkClick(e, item.toLowerCase())}
                     className="text-gray-700 hover:text-amber-700 px-4 py-2 text-sm font-medium transition-all duration-300 hover:bg-amber-100 rounded-lg relative group"
-                    onClick={() => {
-                      document.getElementById(`${item.toLowerCase()}`)?.scrollIntoView({ behavior: "smooth" });
-                    }}
                   >
                     {item}
                     <span className="absolute inset-x-0 -bottom-1 h-0.5 bg-amber-600 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></span>
@@ -262,29 +289,25 @@ const App = () => {
             {/* Mobile menu button */}
             <div className="md:hidden">
               <button
+                ref={buttonRef}
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
-                className="text-gray-700 hover:text-amber-700 p-2 rounded-lg hover:bg-amber-100 transition-all duration-300"
+                className="text-amber-800 hover:text-amber-900 p-2 rounded-lg hover:bg-amber-100 transition-colors duration-300"
               >
-                {isMenuOpen ? (
-                  <X className="h-6 w-6" />
-                ) : (
-                  <Menu className="h-6 w-6" />
-                )}
+                {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
               </button>
             </div>
           </div>
         </div>
 
-        {/* Mobile Menu */}
         {isMenuOpen && (
-          <div className="md:hidden bg-white/95 backdrop-blur-md border-t border-amber-200">
-            <div className="px-2 pt-2 pb-3 space-y-1">
-              {["Home", "About", "Products", "Contact"].map((item) => (
+          <div ref={menuRef} className="md:hidden bg-yellow-100 backdrop-blur-md border-t border-amber-200">
+            <div className="px-4 pt-3 pb-4 space-y-2">
+              {navLinks.map((item) => (
                 <a
                   key={item}
                   href={`#${item.toLowerCase()}`}
-                  className="block px-3 py-3 text-base font-medium text-gray-700 hover:text-amber-700 hover:bg-amber-100 rounded-lg transition-all duration-300"
-                  onClick={() => setIsMenuOpen(false)}
+                  onClick={(e) => handleLinkClick(e, item.toLowerCase())}
+                  className="block text-center px-3 py-3 text-base font-medium text-gray-800 hover:text-amber-800 hover:bg-amber-100 rounded-lg transition-all duration-300"
                 >
                   {item}
                 </a>
@@ -628,7 +651,7 @@ const App = () => {
                   />
                 </div>
 
-                <div className="flex items-start">
+                {/* <div className="flex items-start">
                   <input
                     type="checkbox"
                     name="consent"
@@ -640,7 +663,7 @@ const App = () => {
                     I allow this website to store my submission so they can
                     respond to my inquiry. *
                   </label>
-                </div>
+                </div> */}
 
                 <button
                   onClick={handleSubmit}
@@ -681,9 +704,9 @@ const App = () => {
                     icon: <Phone className="w-8 h-8 text-green-600" />,
                     title: "Anil kr. Jain",
                     content: (
-                        <a href="tel:+919414088409" className="block text-gray-700 hover:underline">
-                          +91-9414088409
-                        </a>
+                      <a href="tel:+919414088409" className="block text-gray-700 hover:underline">
+                        +91-9414088409
+                      </a>
                     ),
                   },
                   {
@@ -698,14 +721,14 @@ const App = () => {
                 ].map((item, index) => (
                   <div
                     key={index}
-                    className="flex items-start bg-white rounded-2xl p-6 shadow-md hover:shadow-lg transition-shadow duration-300"
+                    className="flex flex-col items-center text-center bg-white rounded-2xl p-6 shadow-md hover:shadow-lg transition-shadow duration-300"
                   >
-                    <div className="mr-4 mt-1">{item.icon}</div>
+                    <div className="mb-4">{item.icon}</div>
                     <div>
                       <h4 className="font-semibold text-gray-900 mb-2 text-lg">
                         {item.title}
                       </h4>
-                      <div className="text-gray-600 whitespace-pre-line">
+                      <div className="text-gray-600">
                         {item.content}
                       </div>
                     </div>
